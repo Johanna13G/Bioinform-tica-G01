@@ -16,3 +16,18 @@ sirve para contar líneas y esto a su vez es igual que filas. Entonces:
 wc -l n1.txt
 Se obtiene
 97 n1.txt  por lo tanto hay 97 filas en el archivo n1.txt 
+COLUMNAS
+Para contar el npumero de columnas podemos utilizar solo la primera línea aplicando el siguiente comando:
+head -n 1 n1.txt
+y se obtiene la primera línea:
+1 1 1 0 1 1 1 0 1 0 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 1 0 1 0 1 0 0 1 1 1 1 1 0 0 1 0 1 0 0 0 0 1 1 1 0 1 0 1 
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
+Ahora debemos eliminar todos los espacios que existen para asegurarnos que se cuenten solamente las 
+columnas y para esto se agrega el comando tr:
+head -n 1 n1.txt | tr -d '  '  | tr -d ' \ n '
+De esta menra se obtiene la siguiente línea sin espacios:
+11101110101100011111110000101010011111001010000111010100000100000000000011000000
+#Ahora solo añadimos el comando wc -c que nos servirá para contar el número de columnas:
+head -n 1 n1.txt | tr -d '  '  | tr -d ' \ n '  | wc -c
+Obteniendo:
+81  por lo tanto este dato corresponde al número de columnas (plantas)
