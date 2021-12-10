@@ -31,3 +31,4 @@ De esta menra se obtiene la siguiente línea sin espacios:
 head -n 1 n1.txt | tr -d '  '  | tr -d ' \ n '  | wc -c
 Obteniendo:
 81  por lo tanto este dato corresponde al número de columnas (plantas)
+____________________________________________________________________________________
